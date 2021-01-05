@@ -108,7 +108,7 @@ namespace BilgeAdam2D.Inputs
                     ""name"": """",
                     ""id"": ""c41f8172-5120-4fce-b12a-12a9619558ab"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": ""Tap(duration=0.01,pressPoint=0.1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",

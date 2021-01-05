@@ -10,12 +10,16 @@ namespace BilgeAdam2D.Inputs
         DefaultControl _defaultInput;
 
         public float Horizontal { get; private set; }
+        public bool IsJump { get; private set; }
 
         public MyInput(DefaultControl input)
         {
             _defaultInput = input;
             
-            _defaultInput.PlayerOnFoot.Move.performed += MoveOnperformed; 
+            _defaultInput.PlayerOnFoot.Move.performed += MoveOnperformed;
+
+            _defaultInput.PlayerOnFoot.Jump.started += context => IsJump = true;
+            _defaultInput.PlayerOnFoot.Jump.canceled += context => IsJump = false;
             
             _defaultInput.Enable();
         }
