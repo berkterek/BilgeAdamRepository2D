@@ -35,6 +35,14 @@ namespace BilgeAdam2D.Inputs
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""507b1ed9-e7ae-4f6b-a16a-708660ce6693"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -125,6 +133,17 @@ namespace BilgeAdam2D.Inputs
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b36f5062-8b24-4efc-be3b-ee287a0f62aa"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Tap(duration=0.01,pressPoint=0.02)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -135,6 +154,7 @@ namespace BilgeAdam2D.Inputs
             m_PlayerOnFoot = asset.FindActionMap("PlayerOnFoot", throwIfNotFound: true);
             m_PlayerOnFoot_Move = m_PlayerOnFoot.FindAction("Move", throwIfNotFound: true);
             m_PlayerOnFoot_Jump = m_PlayerOnFoot.FindAction("Jump", throwIfNotFound: true);
+            m_PlayerOnFoot_Attack = m_PlayerOnFoot.FindAction("Attack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -186,12 +206,14 @@ namespace BilgeAdam2D.Inputs
         private IPlayerOnFootActions m_PlayerOnFootActionsCallbackInterface;
         private readonly InputAction m_PlayerOnFoot_Move;
         private readonly InputAction m_PlayerOnFoot_Jump;
+        private readonly InputAction m_PlayerOnFoot_Attack;
         public struct PlayerOnFootActions
         {
             private @DefaultControl m_Wrapper;
             public PlayerOnFootActions(@DefaultControl wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_PlayerOnFoot_Move;
             public InputAction @Jump => m_Wrapper.m_PlayerOnFoot_Jump;
+            public InputAction @Attack => m_Wrapper.m_PlayerOnFoot_Attack;
             public InputActionMap Get() { return m_Wrapper.m_PlayerOnFoot; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -207,6 +229,9 @@ namespace BilgeAdam2D.Inputs
                     @Jump.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnJump;
                     @Jump.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnJump;
                     @Jump.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnJump;
+                    @Attack.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnAttack;
+                    @Attack.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnAttack;
+                    @Attack.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnAttack;
                 }
                 m_Wrapper.m_PlayerOnFootActionsCallbackInterface = instance;
                 if (instance != null)
@@ -217,6 +242,9 @@ namespace BilgeAdam2D.Inputs
                     @Jump.started += instance.OnJump;
                     @Jump.performed += instance.OnJump;
                     @Jump.canceled += instance.OnJump;
+                    @Attack.started += instance.OnAttack;
+                    @Attack.performed += instance.OnAttack;
+                    @Attack.canceled += instance.OnAttack;
                 }
             }
         }
@@ -225,6 +253,7 @@ namespace BilgeAdam2D.Inputs
         {
             void OnMove(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnAttack(InputAction.CallbackContext context);
         }
     }
 }

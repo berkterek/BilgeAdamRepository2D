@@ -12,6 +12,8 @@ namespace BilgeAdam2D.Inputs
         public float Horizontal { get; private set; }
         public bool IsJump { get; private set; }
 
+        public bool IsAttack { get; private set; }
+
         public MyInput(DefaultControl input)
         {
             _defaultInput = input;
@@ -20,6 +22,9 @@ namespace BilgeAdam2D.Inputs
 
             _defaultInput.PlayerOnFoot.Jump.started += context => IsJump = true;
             _defaultInput.PlayerOnFoot.Jump.canceled += context => IsJump = false;
+
+            _defaultInput.PlayerOnFoot.Attack.started += context => IsAttack = true;
+            _defaultInput.PlayerOnFoot.Attack.canceled += context => IsAttack = false; 
             
             _defaultInput.Enable();
         }

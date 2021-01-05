@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "507b1ed9-e7ae-4f6b-a16a-708660ce6693",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -108,6 +116,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b36f5062-8b24-4efc-be3b-ee287a0f62aa",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Tap(duration=0.01,pressPoint=0.02)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
