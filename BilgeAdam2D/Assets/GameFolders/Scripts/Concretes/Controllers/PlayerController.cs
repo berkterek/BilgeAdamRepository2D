@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using BilgeAdam2D.Abstracts.Controllers;
 using BilgeAdam2D.Abstracts.Movements;
 using BilgeAdam2D.Animations;
 using BilgeAdam2D.Combats;
@@ -10,7 +11,7 @@ using UnityEngine;
 
 namespace BilgeAdam2D.Controllers
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour , IEntityController
     {
         [SerializeField] float _moveSpeed = 5f;
         [SerializeField] float _jumpForce = 150f;

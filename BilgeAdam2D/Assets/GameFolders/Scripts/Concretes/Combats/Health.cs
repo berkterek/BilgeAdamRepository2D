@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +9,8 @@ namespace BilgeAdam2D.Combats
         [SerializeField] private int _maxHealth;
         [SerializeField] private int _currentHealth;
 
+        public event System.Action OnDead;
+        
         public bool IsDead => _currentHealth <= 0;
 
         private void Awake()
@@ -31,6 +32,8 @@ namespace BilgeAdam2D.Combats
 
         private IEnumerator DieAsync()
         {
+            OnDead?.Invoke();
+            
             yield return new WaitForSeconds(3);
 
             Destroy(this.gameObject);

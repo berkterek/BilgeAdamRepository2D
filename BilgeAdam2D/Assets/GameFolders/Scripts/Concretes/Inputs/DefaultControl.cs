@@ -22,7 +22,7 @@ namespace BilgeAdam2D.Inputs
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""50ab3764-f6ca-40f3-b92e-c4da37a53ef9"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -30,7 +30,7 @@ namespace BilgeAdam2D.Inputs
                 },
                 {
                     ""name"": ""Jump"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""79961c36-141c-4113-80ff-5b1d33d6da2c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -38,11 +38,11 @@ namespace BilgeAdam2D.Inputs
                 },
                 {
                     ""name"": ""Attack"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""507b1ed9-e7ae-4f6b-a16a-708660ce6693"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)""
+                    ""interactions"": ""Press(pressPoint=1,behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -116,7 +116,7 @@ namespace BilgeAdam2D.Inputs
                     ""name"": """",
                     ""id"": ""c41f8172-5120-4fce-b12a-12a9619558ab"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Tap(duration=0.01,pressPoint=0.1)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
@@ -127,7 +127,7 @@ namespace BilgeAdam2D.Inputs
                     ""name"": """",
                     ""id"": ""fcbcbe01-7a6b-430f-8fb1-4ddb72e4cf1d"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
@@ -138,7 +138,7 @@ namespace BilgeAdam2D.Inputs
                     ""name"": """",
                     ""id"": ""b36f5062-8b24-4efc-be3b-ee287a0f62aa"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Tap(duration=0.01,pressPoint=0.02)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",

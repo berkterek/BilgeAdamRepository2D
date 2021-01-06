@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using BilgeAdam2D.Abstracts.Controllers;
 using BilgeAdam2D.Controllers;
 using UnityEngine;
 
@@ -9,9 +10,9 @@ namespace BilgeAdam2D.Animations
     {
         private Animator _animator;
 
-        public CharacterAnimation(PlayerController player)
+        public CharacterAnimation(IEntityController entity)
         {
-            _animator = player.GetComponent<Animator>();
+            _animator = entity.transform.GetComponent<Animator>();
         }
 
         public void MoveAnimation(float moveSpeed)
@@ -24,6 +25,11 @@ namespace BilgeAdam2D.Animations
         public void AttackAnimation()
         {
             _animator.SetTrigger("attack");
+        }
+
+        public void DeadAnimation()
+        {
+            _animator.SetTrigger("die");
         }
     }    
 }
